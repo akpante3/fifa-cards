@@ -56,7 +56,3 @@ jobs:
 
       - run: npm install
       - run: npm run build
-
-      - name: deploy
-        id: deployment
-        uses: actions/deploy-pages@v1
