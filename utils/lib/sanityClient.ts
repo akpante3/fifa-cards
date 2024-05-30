@@ -1,5 +1,6 @@
-import { createClient } from '@sanity/client';
+import { createClient } from "@sanity/client";
 
+// TODO: post resources in .env file
 const client = createClient({
   projectId: "21fy9g0s",
   dataset: "production",

@@ -2,7 +2,7 @@
   <div class="loading-container" v-if="loading">
     <Loader />
   </div>
-  <section  v-else>
+  <section class="table-wrapper"  v-else>
     <TableComponent :headers="tableHeaders" :body="getFifaCards" />
     <!-- TODO: Pagination -->
   </section>
@@ -14,6 +14,7 @@ import { getFifaCards } from "../utils/fifaCardQueries";
 import Loader from "../components/loader";
 
 export default {
+  name: "Home",
   data() {
     return {
       fifaCards: [],
@@ -81,4 +82,9 @@ export default {
 };
 </script>
 
-<style scoped></style>
+<style scoped>
+.table-wrapper {
+  @apply mb-9;
+  max-width: 1500px;
+}
+</style>

@@ -1,10 +1,10 @@
 <template>
   <div class="relative overflow-x-auto shadow-md sm:rounded-lg">
     <table
-      class="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400"
+      class="w-full text-sm text-left rtl:text-right"
     >
       <thead
-        class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400"
+        class="text-xs"
       >
         <tr>
           <th
@@ -16,9 +16,10 @@
             <div :key="index" class="flex items-center">
               {{ header }}
               <a href="#"
+              class="ml-2"
                 >
-                <img src="../../assets/icons/up-arrow.svg" alt="Up arrow icon" class="w-3 h-3" />
-                <img src="../../assets/icons/down-arrow.svg" alt="down arrow icon" class="w-3 h-3" /></a>
+                <img src="../../assets/icons/up-arrow.svg" alt="Up arrow icon" width="10px" height="5px" />
+                <img src="../../assets/icons/down-arrow.svg" alt="down arrow icon" width="10px" height="5px" /></a>
             </div>
           </th>
         </tr>
@@ -27,7 +28,7 @@
         <tr
           v-for="(row, index) in body"
           :key="index"
-          class="bg-white border-b dark:bg-gray-800 dark:border-gray-700"
+          class=""
         >
           <nuxt-link
             :to="`/${row.slug}`"
@@ -38,8 +39,8 @@
               :key="id"
               class="px-6 py-4"
             >
-              <div v-if="key === 'OVR'" class="first-column">{{ item }}</div>
-              <div v-else-if="Number(item)" class="first-column">{{ item }}</div>
+              <div v-if="key === 'OVR'" class="first-column number-item">{{ item }}</div>
+              <div v-else-if="Number(item)" class="number-item">{{ item }}</div>
               <span v-else>{{ item }}</span>
             </td>
           </nuxt-link>
@@ -56,17 +57,16 @@ export default {
   name: "TableComponent",
   props: {
     rows: {
-      /** @type {import('vue').PropType<row[]>} */
       type: Array,
-    },
-    rowsPerPage: {
-      type: Number,
+      default: []
     },
     headers: {
       type: Array,
+      default: []
     },
     body: {
       type: Array,
+      default: []
     },
   },
   data() {
@@ -89,15 +89,28 @@ export default {
 </script>
 
 <style scoped>
-.first-column {
-  background-color: white ;
-  border: black 1px solid;
+.number-item {
+  border: var(--text-color) 1px solid;
   justify-content: center; 
   align-items: center;
   border-radius: 4px;
   width: 40px;
   height: 31px;
   display:flex
+}
+.contents:hover {
+  background: var(--background-color-1)
+}
+.first-column {
+  color: var(--background-color-2);
+  background-color: white ;
+}
+table {
+  background: linear-gradient(180deg, var(--background-color-1) 0%, var(--background-color-2) 52%, var(--background-color-3) 100%);
+}
+th {
+  @apply mr-2;
 
 }
+
 </style>

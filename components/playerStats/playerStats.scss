@@ -1,5 +1,5 @@
 .player-stats {
-    @apply max-w-sm mx-auto text-black;
+    @apply max-w-sm mx-auto;
     @media (max-width: 1074px) { 
         @apply text-sm;
     }

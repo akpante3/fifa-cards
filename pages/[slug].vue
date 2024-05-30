@@ -2,7 +2,7 @@
   <div class="loading-container" v-if="loading">
     <Loader />
   </div>
-  
+
   <main class="detail-page" v-else>
     <section class="detail-page__player-stats" v-if="computedPlayerStats">
       <img
@@ -24,7 +24,7 @@
         </div>
       </div>
     </section>
-    <div class=" detail-page__info-wrapper">
+    <div class="detail-page__info-wrapper">
       <h1 class="detail-page__player-name">{{ player.name }}</h1>
       <nuxt-link class="underline" to="/">View all cards</nuxt-link>
     </div>
@@ -47,7 +47,7 @@ import Loader from "../components/loader";
 import { getPlayerStats } from "../utils/fifaCardQueries";
 
 export default {
-  name: "PlayerCard",
+  name: "PlayerCardDetails",
   data() {
     return {
       player: {},
@@ -90,14 +90,22 @@ export default {
   },
   methods: {
     async playerStat() {
+      const router = useRouter();
       this.loading = true;
 
       try {
         const data = await getPlayerStats(this.$route.params.slug);
 
+        if (!data) {
+          console.log("am i invincible");
+          router.push({ path: "/404" });
+          return;
+        }
+
         if (data) {
           this.player = data;
         }
+
         this.loading = false;
       } catch (error) {
         console.error("Error fetching posts:", error);
@@ -105,8 +113,9 @@ export default {
       }
     },
     filterStat(stats) {
-      const { average, ...rest } = stats;
-      return rest;
+      return Object.fromEntries(
+        Object.entries(stats).filter(([key]) => key !== "average")
+      );
     },
     getAverageStat(name) {
       return this.computedPlayerStats[`${name}`]?.average;

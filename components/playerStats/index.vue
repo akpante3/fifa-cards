@@ -22,12 +22,15 @@ export default {
   props: {
     header: {
       type: String,
+      default: ''
     },
     stats: {
       type: Object,
+      default: []
     },
     headerValue: {
       type: Number,
+      default: 0
     },
   },
   methods: {
