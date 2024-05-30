@@ -1,11 +1,7 @@
 <template>
   <div class="relative overflow-x-auto shadow-md sm:rounded-lg">
-    <table
-      class="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400"
-    >
-      <thead
-        class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400"
-      >
+    <table class="w-full text-sm text-left rtl:text-right">
+      <thead class="text-xs">
         <tr>
           <th
             v-for="(header, index) in headers"
@@ -15,38 +11,35 @@
           >
             <div :key="index" class="flex items-center">
               {{ header }}
-              <a href="#"
-                ><svg
-                  class="w-3 h-3 ms-1.5"
-                  aria-hidden="true"
-                  xmlns="http://www.w3.org/2000/svg"
-                  fill="currentColor"
-                  viewBox="0 0 24 24"
-                >
-                  <path
-                    d="M8.574 11.024h6.852a2.075 2.075 0 0 0 1.847-1.086 1.9 1.9 0 0 0-.11-1.986L13.736 2.9a2.122 2.122 0 0 0-3.472 0L6.837 7.952a1.9 1.9 0 0 0-.11 1.986 2.074 2.074 0 0 0 1.847 1.086Zm6.852 1.952H8.574a2.072 2.072 0 0 0-1.847 1.087 1.9 1.9 0 0 0 .11 1.985l3.426 5.05a2.123 2.123 0 0 0 3.472 0l3.427-5.05a1.9 1.9 0 0 0 .11-1.985 2.074 2.074 0 0 0-1.846-1.087Z"
-                  /></svg
-              ></a>
+              <a href="#" class="ml-2">
+                <img
+                  src="../../assets/icons/up-arrow.svg"
+                  alt="Up arrow icon"
+                  width="10px"
+                  height="5px" />
+                <img
+                  src="../../assets/icons/down-arrow.svg"
+                  alt="down arrow icon"
+                  width="10px"
+                  height="5px"
+              /></a>
             </div>
           </th>
         </tr>
       </thead>
       <tbody>
-        <tr
-          v-for="(row, index) in body"
-          :key="index"
-          class="bg-white border-b dark:bg-gray-800 dark:border-gray-700"
-        >
-          <nuxt-link
-            :to="`/${row.slug}`"
-            class="contents"
-          >
+        <tr v-for="(row, index) in body" :key="index" class="">
+          <nuxt-link :to="`/${row.slug}`" class="contents">
             <td
-              v-for="(item, id) in filterRow(row)"
+              v-for="(item, key, id) in filterRow(row)"
               :key="id"
               class="px-6 py-4"
             >
-              {{ item }}
+              <div v-if="key === 'OVR'" class="first-column number-item">
+                {{ item }}
+              </div>
+              <div v-else-if="Number(item)" class="number-item">{{ item }}</div>
+              <span v-else>{{ item }}</span>
             </td>
           </nuxt-link>
         </tr>
@@ -62,17 +55,16 @@ export default {
   name: "TableComponent",
   props: {
     rows: {
-      /** @type {import('vue').PropType<row[]>} */
       type: Array,
-    },
-    rowsPerPage: {
-      type: Number,
+      default: [],
     },
     headers: {
       type: Array,
+      default: [],
     },
     body: {
       type: Array,
+      default: [],
     },
   },
   data() {
@@ -80,14 +72,7 @@ export default {
   },
 
   methods: {
-    handleRowClick(slug) {
-      console.log(slug, "------");
-    },
-    filterRow(row) {
-      const { slug, ...rest } = row;
-      // if (this.header.length === this.rest.length) {
-      //   console.log('======= hello')
-      // }
+    filterRow({ slug, ...rest }) {
       return rest;
     },
   },
@@ -95,5 +80,31 @@ export default {
 </script>
 
 <style scoped>
-/* Add your styles here if needed */
+.number-item {
+  border: var(--text-color) 1px solid;
+  justify-content: center;
+  align-items: center;
+  border-radius: 4px;
+  width: 40px;
+  height: 31px;
+  display: flex;
+}
+.contents:hover {
+  background: var(--background-color-1);
+}
+.first-column {
+  color: var(--background-color-2);
+  background-color: white;
+}
+table {
+  background: linear-gradient(
+    180deg,
+    var(--background-color-1) 10%,
+    var(--background-color-3) 52%,
+    var(--background-color-4) 70%
+  );
+}
+th {
+  @apply mr-2;
+}
 </style>

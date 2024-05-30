@@ -43,6 +43,7 @@ export async function getPlayerStats(slug:String) {
 		}
 	  `)
 	  return data[0]
+	  console.log(data)
 	} catch (error) {
 	  console.error("Error fetching posts:", error);
 	}
@@ -59,8 +60,11 @@ export async function getPlayerStats(slug:String) {
 		  shooting { average },
 		  passing { average },
 		  defense { average },
-		  physical { average }
+		  physical { average },
+		  dribbling { average },
+		  isGoalkeeper
 		},
+		workRatesAttacking,
 		slug {
 		  current
 		},

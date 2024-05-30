@@ -1,9 +1,9 @@
 <template>
-  <div class="loading">
-    <Loader v-if="loading" />
+  <div class="loading-container" v-if="loading">
+    <Loader />
   </div>
-  
-  <main v-if="!loading" class="detail-page">
+
+  <main class="detail-page" v-else>
     <section class="detail-page__player-stats" v-if="computedPlayerStats">
       <img
         v-if="cardImage"
@@ -24,7 +24,7 @@
         </div>
       </div>
     </section>
-    <div class="flex mt-5 items-end">
+    <div class="detail-page__info-wrapper">
       <h1 class="detail-page__player-name">{{ player.name }}</h1>
       <nuxt-link class="underline" to="/">View all cards</nuxt-link>
     </div>
@@ -47,7 +47,7 @@ import Loader from "../components/loader";
 import { getPlayerStats } from "../utils/fifaCardQueries";
 
 export default {
-  name: "PlayerCard",
+  name: "PlayerCardDetails",
   data() {
     return {
       player: {},
@@ -67,7 +67,6 @@ export default {
       if (this.player.statistics) {
         result = this.player.statistics;
       }
-      console.log(this.player, "player");
       return result;
     },
     cardImage() {
@@ -76,13 +75,13 @@ export default {
     playerInfo() {
       if (this.player) {
         return {
-          club: this.player?.club,
-          league: this.player?.league,
-          nation: this.player?.nation,
-          strongFoot: this.player?.strongFoot,
-          age: this.player?.age,
-          height: this.player?.height,
-          workRatesAttacking: this.player.workRatesAttacking,
+          club: this.player?.club || '',
+          league: this.player?.league || '',
+          nation: this.player?.nation || '',
+          strongFoot: this.player?.strongFoot || '',
+          age: this.player?.age || '',
+          height: this.player?.height || '',
+          workRatesAttacking: this.player.workRatesAttacking || '',
         };
       }
       return {};
@@ -90,14 +89,22 @@ export default {
   },
   methods: {
     async playerStat() {
+      const router = useRouter();
       this.loading = true;
 
       try {
         const data = await getPlayerStats(this.$route.params.slug);
 
+        if (!data) {
+          console.log("am i invincible");
+          router.push({ path: "/404" });
+          return;
+        }
+
         if (data) {
           this.player = data;
         }
+
         this.loading = false;
       } catch (error) {
         console.error("Error fetching posts:", error);
@@ -105,8 +112,9 @@ export default {
       }
     },
     filterStat(stats) {
-      const { average, ...rest } = stats;
-      return rest;
+      return Object.fromEntries(
+        Object.entries(stats).filter(([key]) => key !== "average")
+      );
     },
     getAverageStat(name) {
       return this.computedPlayerStats[`${name}`]?.average;
