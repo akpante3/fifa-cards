@@ -1,11 +1,11 @@
 <template>
-  <div class="loading-container" v-if="loading">
+  <section class="loading-container" v-if="loading">
     <Loader />
-  </div>
-  <section class="table-wrapper"  v-else>
+  </section>
+  <main class="table-wrapper"  v-else>
     <TableComponent :headers="tableHeaders" :body="getFifaCards" />
     <!-- TODO: Pagination -->
-  </section>
+  </main>
 </template>
 
 <script>
@@ -73,7 +73,7 @@ export default {
         }
         this.loading = false
       } catch (error) {
-        console.error("Error fetching posts:", error);
+        console.error("Error fetching Cards:", error);
         this.loading = false
       }
     },

@@ -1,5 +1,8 @@
 import client from "./lib/sanityClient"
 
+
+// TODO: use the FifaCard interface in methods.
+// got some errors that persisted using the interface, decided to remove it from the because of limited time
 export interface FifaCard  {
 	_type: 'fifaCard'
 	name?: string
@@ -27,6 +30,7 @@ export interface FifaCard  {
 	linkedArticle?: object
 }
 
+
 export async function getPlayerStats(slug:String) {
 
 	try {
@@ -43,7 +47,7 @@ export async function getPlayerStats(slug:String) {
 		}
 	  `)
 	  return data[0]
-	  console.log(data)
+
 	} catch (error) {
 	  console.error("Error fetching posts:", error);
 	}
