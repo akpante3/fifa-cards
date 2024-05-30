@@ -17,7 +17,6 @@
     </ul>
   </div>
 </template>
-<!-- TODO: capitalize headers -->
 <script>
 export default {
   name: "PlayerStats",

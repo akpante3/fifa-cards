@@ -10,7 +10,7 @@
 
 <script>
 import TableComponent from "../components/table/index.vue";
-import { getFifaCards } from "../utils/fifaCardQueries";
+import { getFifaCards } from "../utils/fifaCardQueries.ts";
 import Loader from "../components/loader/index.vue";
 
 export default {
