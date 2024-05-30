@@ -59,7 +59,10 @@ export async function getPlayerStats(slug:String) {
 		  shooting { average },
 		  passing { average },
 		  defense { average },
-		  physical { average }
+		  physical { average },
+		  dribbling { average },
+		  workRatesAttacking,
+		  isGoalkeeper
 		},
 		slug {
 		  current

@@ -1,9 +1,9 @@
 <template>
-  <div class="loading">
-    <Loader v-if="loading" />
+  <div class="loading-container" v-if="loading">
+    <Loader />
   </div>
   
-  <main v-if="!loading" class="detail-page">
+  <main class="detail-page" v-else>
     <section class="detail-page__player-stats" v-if="computedPlayerStats">
       <img
         v-if="cardImage"
@@ -24,7 +24,7 @@
         </div>
       </div>
     </section>
-    <div class="flex mt-5 items-end">
+    <div class=" detail-page__info-wrapper">
       <h1 class="detail-page__player-name">{{ player.name }}</h1>
       <nuxt-link class="underline" to="/">View all cards</nuxt-link>
     </div>
