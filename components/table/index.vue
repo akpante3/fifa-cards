@@ -27,8 +27,8 @@
           </th>
         </tr>
       </thead>
-      <tbody>
-        <tr v-for="(row, index) in body" :key="index" class="">
+      <tbody class="body-row">
+        <tr v-for="(row, index) in body" :key="index">
           <nuxt-link :to="`/${row.slug}`" class="contents">
             <td
               v-for="(item, key, id) in filterRow(row)"
@@ -49,7 +49,6 @@
 </template>
 
 <script>
-// import { VTable } from 'vuejs-smart-table'
 
 export default {
   name: "TableComponent",
@@ -90,7 +89,7 @@ export default {
   display: flex;
 }
 .contents:hover {
-  background: var(--background-color-1);
+  background-color: white;
 }
 .first-column {
   color: var(--background-color-2);
@@ -106,5 +105,8 @@ table {
 }
 th {
   @apply mr-2;
+}
+.body-row :hover {
+  background: var(--background-color-3)
 }
 </style>

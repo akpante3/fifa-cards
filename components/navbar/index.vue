@@ -33,7 +33,7 @@ nav {
   background-color: var(--background-color-2);
 }
 ul {
-    max-width: 1500px;
-    width: 100%;
+  max-width: 1500px;
+  width: 100%;
 }
 </style>

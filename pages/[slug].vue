@@ -42,8 +42,8 @@
 </template>
 
 <script>
-import PlayerStats from "../components/playerStats";
-import Loader from "../components/loader";
+import PlayerStats from "../components/playerStats/index.vue";
+import Loader from "../components/loader/index.vue";
 import { getPlayerStats } from "../utils/fifaCardQueries";
 
 export default {
