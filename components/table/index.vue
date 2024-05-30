@@ -1,11 +1,7 @@
 <template>
   <div class="relative overflow-x-auto shadow-md sm:rounded-lg">
-    <table
-      class="w-full text-sm text-left rtl:text-right"
-    >
-      <thead
-        class="text-xs"
-      >
+    <table class="w-full text-sm text-left rtl:text-right">
+      <thead class="text-xs">
         <tr>
           <th
             v-for="(header, index) in headers"
@@ -15,31 +11,33 @@
           >
             <div :key="index" class="flex items-center">
               {{ header }}
-              <a href="#"
-              class="ml-2"
-                >
-                <img src="../../assets/icons/up-arrow.svg" alt="Up arrow icon" width="10px" height="5px" />
-                <img src="../../assets/icons/down-arrow.svg" alt="down arrow icon" width="10px" height="5px" /></a>
+              <a href="#" class="ml-2">
+                <img
+                  src="../../assets/icons/up-arrow.svg"
+                  alt="Up arrow icon"
+                  width="10px"
+                  height="5px" />
+                <img
+                  src="../../assets/icons/down-arrow.svg"
+                  alt="down arrow icon"
+                  width="10px"
+                  height="5px"
+              /></a>
             </div>
           </th>
         </tr>
       </thead>
       <tbody>
-        <tr
-          v-for="(row, index) in body"
-          :key="index"
-          class=""
-        >
-          <nuxt-link
-            :to="`/${row.slug}`"
-            class="contents"
-          >
+        <tr v-for="(row, index) in body" :key="index" class="">
+          <nuxt-link :to="`/${row.slug}`" class="contents">
             <td
               v-for="(item, key, id) in filterRow(row)"
               :key="id"
               class="px-6 py-4"
             >
-              <div v-if="key === 'OVR'" class="first-column number-item">{{ item }}</div>
+              <div v-if="key === 'OVR'" class="first-column number-item">
+                {{ item }}
+              </div>
               <div v-else-if="Number(item)" class="number-item">{{ item }}</div>
               <span v-else>{{ item }}</span>
             </td>
@@ -58,15 +56,15 @@ export default {
   props: {
     rows: {
       type: Array,
-      default: []
+      default: [],
     },
     headers: {
       type: Array,
-      default: []
+      default: [],
     },
     body: {
       type: Array,
-      default: []
+      default: [],
     },
   },
   data() {
@@ -74,14 +72,7 @@ export default {
   },
 
   methods: {
-    handleRowClick(slug) {
-      console.log(slug, "------");
-    },
-    filterRow(row) {
-      const { slug, ...rest } = row;
-      // if (this.header.length === this.rest.length) {
-      //   console.log('======= hello')
-      // }
+    filterRow({ slug, ...rest }) {
       return rest;
     },
   },
@@ -91,26 +82,29 @@ export default {
 <style scoped>
 .number-item {
   border: var(--text-color) 1px solid;
-  justify-content: center; 
+  justify-content: center;
   align-items: center;
   border-radius: 4px;
   width: 40px;
   height: 31px;
-  display:flex
+  display: flex;
 }
 .contents:hover {
-  background: var(--background-color-1)
+  background: var(--background-color-1);
 }
 .first-column {
   color: var(--background-color-2);
-  background-color: white ;
+  background-color: white;
 }
 table {
-  background: linear-gradient(180deg, var(--background-color-1) 0%, var(--background-color-2) 52%, var(--background-color-3) 100%);
+  background: linear-gradient(
+    180deg,
+    var(--background-color-1) 10%,
+    var(--background-color-3) 52%,
+    var(--background-color-4) 70%
+  );
 }
 th {
   @apply mr-2;
-
 }
-
 </style>

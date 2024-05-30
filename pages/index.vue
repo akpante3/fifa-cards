@@ -9,9 +9,9 @@
 </template>
 
 <script>
-import TableComponent from "../components/table";
+import TableComponent from "../components/table/index.vue";
 import { getFifaCards } from "../utils/fifaCardQueries";
-import Loader from "../components/loader";
+import Loader from "../components/loader/index.vue";
 
 export default {
   name: "Home",
@@ -42,17 +42,16 @@ export default {
   computed: {
     getFifaCards() {
       return this.fifaCards.map((card) => {
-        console.log(card, '---------')
         return {
           Name: card.name,
           OVR: card.rating,
           POS: card.position || "",
           Type: card.isGoalkeeper ? 'GK': 'Pl',
-          PAC: card.statistics.physical?.average || "",
-          SHO: card.statistics.shooting?.average || "",
-          DRI: card.statistics.dribbling?.average || "",
-          DEF: card.statistics.defense?.average || "",
-          PHY: card.statistics.physical?.average || "",
+          PAC: card.statistics?.physical?.average ?? "",
+          SHO: card.statistics?.shooting?.average || "",
+          DRI: card.statistics?.dribbling?.average || "",
+          DEF: card.statistics?.defense?.average || "",
+          PHY: card.statistics?.physical?.average || "",
           WR: card.workRatesAttacking,
           slug: card.slug.current,
         };

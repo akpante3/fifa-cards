@@ -7,7 +7,7 @@
   }
 &__player-stats {
   @apply flex justify-between rounded-xl px-4 pb-2;
-  background: linear-gradient(180deg, var(--background-color-1) 0%, var(--background-color-2) 52%, var(--background-color-3) 100%);
+  background: linear-gradient(180deg, var(--background-color-1) 10%, var(--background-color-3) 52%, var(--background-color-4) 80%);
   @media (max-width: 1074px) {
       @apply flex-col items-center;
       justify-content: center;
