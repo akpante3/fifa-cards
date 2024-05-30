@@ -3,9 +3,9 @@
 ## About The Project
 
 
-- This mini project with list of FifaCards and Detail page.
+This mini project with 2 pages,  list of FifaCards and The Detail page.
   
-### Built with
+## Built with
 - Nuxt 3
 - Tailwind
 - Sanity
@@ -16,14 +16,14 @@ Instructions for setting up this project locally.
 To get a local copy up and running follow these simple example steps.
 
 <!-- PREREQUISITES -->
-### Prerequisites
+## Prerequisites
 * node <a href="https://nodejs.org/en">Download</a>
 * npm
   ```sh
   npm install npm@latest -g
   ```
 <!-- INSTALLATION -->
-### Installation
+## Installation
 
 1. Clone this repo
 
@@ -42,7 +42,7 @@ To get a local copy up and running follow these simple example steps.
 If you did everything right from Installation 👆🏾: The project should be available at http://localhost:3000/
 
 <!-- TEST -->
-### Test
+## Test
 Tools used for testing includes:
 
 - Playwright: e2e test
@@ -56,6 +56,7 @@ for unit run:
 ```sh
  npm run test:unit
 ```
+## Packages
 
 <!-- ROADMAP -->
 ## Roadmap
