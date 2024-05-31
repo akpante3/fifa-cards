@@ -3,7 +3,9 @@
 ## About The Project
 
 
-This mini project with 2 pages,  list of FifaCards and The Detail page.
+This mini project with 2 pages,  
+- list of FifaCards
+- FifaCards Detail page.
 
 
 ## Images 
@@ -52,35 +54,39 @@ If you did everything right from Installation 👆🏾: The project should be av
 Tools used for testing includes:
 
 - Playwright: e2e test
-for e2e run: 
 ```sh
  npm run test:e2e
 ```    
 
 - Vitest: unit test
-for unit run:
 ```sh
  npm run test:unit
 ```
 ## Packages
+- [Playwright](https://playwright.dev/)
+- [Vitest](https://vitest.dev/)
+- [Tailwind](https://tailwindcss.com/)
+- [Vue-Utils](https://test-utils.vuejs.org/)
 
 <!-- ROADMAP -->
 ## Roadmap
 
 - [x] UI Implementation:
      - Design was created on  [Figma](https://www.figma.com/file/s7kImUBIReGwNOfhtkqSNs/GDM-hiring?node-id=0%3A1)
-     - Manrope family-font used through the project
+     - Manrope( variable ) family-font used throughout the project
+     - Scss and Tailwind
        
 - [x] API Implementation:
-      - Data was pulled from [sanity studio](https://www.sanity.io/)
+    - Data was pulled from [sanity studio](https://www.sanity.io/)
       
 - [x] Testing:
-      - unit and e2e
+    - unit and e2e
       
 ## Pending TODO
+
 - Pagination
 - Sorting
-- make the menu-bar functional
+- make the menu bar functional
 - improve typescript around the project
 - 
 
