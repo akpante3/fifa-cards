@@ -20,12 +20,11 @@ This mini project with 2 pages,
 
 ## Getting Started
 
-Instructions for setting up this project locally.
-To get a local copy up and running follow these simple example steps.
+Follow these instructions to set up the project locally.
 
 <!-- PREREQUISITES -->
 ## Prerequisites
-* node <a href="https://nodejs.org/en">Download</a>
+* <a href="https://nodejs.org/en"> node</a>
 * npm
   ```sh
   npm install npm@latest -g
@@ -53,12 +52,14 @@ If you did everything right from Installation 👆🏾: The project should be av
 ## Test
 Tools used for testing includes:
 
-- Playwright: e2e test
+- Playwright: End-to-end (e2e) testing
+for e2e run: 
 ```sh
  npm run test:e2e
 ```    
 
-- Vitest: unit test
+- Vitest: Unit testing
+for unit run:
 ```sh
  npm run test:unit
 ```
@@ -87,7 +88,7 @@ Tools used for testing includes:
 - Pagination
 - Sorting
 - make the menu bar functional
-- improve typescript around the project
+- Improve TypeScript usage in the components the project
 - 
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
