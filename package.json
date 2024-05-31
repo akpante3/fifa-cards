@@ -5,12 +5,14 @@
   "scripts": {
     "build": "nuxt build",
     "dev": "nuxt dev",
+    "start": "nuxt start --port 3000",
     "generate": "nuxt generate",
     "preview": "nuxt preview",
     "postinstall": "nuxt prepare",
     "test:unit": "vitest run --dir test/unit",
     "test:e2e": "npx playwright test",
     "coverage": "vitest run --coverage"
+ 
   },
   "dependencies": {
     "@nuxt/test-utils": "^3.13.1",

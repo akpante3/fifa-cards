@@ -3,7 +3,7 @@ import client from "./lib/sanityClient"
 
 export interface FifaCard  {
 	_type: 'fifaCard'
-	name?: string
+	name: string
 	gameVersion?: string
 	isGoalkeeper?: boolean
 	slug?: { _type: 'slug'; current: string }
