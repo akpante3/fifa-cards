@@ -35,10 +35,15 @@
               :key="id"
               class="px-6 py-4"
             >
-              <div v-if="key === 'OVR'" class="first-column number-item">
+              <div
+                v-if="key === 'OVR'"
+                class="body-row__first-column body-row__number-item"
+              >
                 {{ item }}
               </div>
-              <div v-else-if="Number(item)" class="number-item">{{ item }}</div>
+              <div v-else-if="Number(item)" class="body-row__number-item">
+                {{ item }}
+              </div>
               <span v-else>{{ item }}</span>
             </td>
           </nuxt-link>
@@ -49,7 +54,6 @@
 </template>
 
 <script>
-
 export default {
   name: "TableComponent",
   props: {
@@ -79,22 +83,7 @@ export default {
 </script>
 
 <style scoped>
-.number-item {
-  border: var(--text-color) 1px solid;
-  justify-content: center;
-  align-items: center;
-  border-radius: 4px;
-  width: 40px;
-  height: 31px;
-  display: flex;
-}
-.contents:hover {
-  background-color: white;
-}
-.first-column {
-  color: var(--background-color-2);
-  background-color: white;
-}
+
 table {
   background: linear-gradient(
     180deg,
@@ -106,7 +95,22 @@ table {
 th {
   @apply mr-2;
 }
+.body-row {
+  &__first-column {
+    color: var(--background-color-2);
+    background-color: white;
+  }
+  &__number-item {
+    border: var(--text-color) 1px solid;
+    justify-content: center;
+    align-items: center;
+    border-radius: 4px;
+    width: 40px;
+    height: 31px;
+    display: flex;
+  }
+}
 .body-row :hover {
-  background: var(--background-color-3)
+  background: var(--background-color-3);
 }
 </style>

@@ -47,7 +47,7 @@ export async function getPlayerStats(slug:String): Promise<FifaCard[] | undefine
 	  return data[0]
 
 	} catch (error) {
-	  console.error("Error fetching posts:", error);
+	  console.error("Error fetching card:", error);
 	}
   }
 
@@ -75,6 +75,6 @@ export async function getPlayerStats(slug:String): Promise<FifaCard[] | undefine
 
 	  return data;
 	} catch (error) {
-	  console.error("Error fetching posts:", error);
+	  console.error("Error fetching cards:", error);
 	}
   }
