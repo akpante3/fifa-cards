@@ -10,6 +10,7 @@
       <li
         v-for="(value, name, index) in stats"
         class="player-stats__body-value"
+        :key="index"
       >
         <span>{{ name }}</span>
         <span class="ml-2">{{ value }}</span>
