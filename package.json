@@ -26,6 +26,7 @@
   },
   "devDependencies": {
     "@playwright/test": "^1.44.1",
+    "@vitest/coverage-v8": "^1.6.0",
     "@vue/test-utils": "^2.4.6",
     "playwright": "^1.44.1",
     "sass": "^1.77.3",
