@@ -1,8 +1,6 @@
 import client from "./lib/sanityClient"
 
 
-// TODO: use the FifaCard interface in methods.
-// got some errors that persisted using the interface, decided to remove it from the because of limited time
 export interface FifaCard  {
 	_type: 'fifaCard'
 	name?: string
@@ -31,7 +29,7 @@ export interface FifaCard  {
 }
 
 
-export async function getPlayerStats(slug:String) {
+export async function getPlayerStats(slug:String): Promise<FifaCard[] | undefined> {
 
 	try {
 	  const data = await client.fetch(`
@@ -54,7 +52,7 @@ export async function getPlayerStats(slug:String) {
   }
 
 
- export async function getFifaCards() {
+  export async function getFifaCards(): Promise<FifaCard[] | undefined> {
 	try {
 	  const data = await client.fetch(`*[_type == "fifaCard"]{
 		name,
