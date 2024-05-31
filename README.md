@@ -5,7 +5,7 @@
 
 This mini project with 2 pages,  list of FifaCards and The Detail page.
 
-## Screenshots
+## Images 
 
   <img width="1440" alt="Screenshot 2024-05-30 at 10 45 29 AM" src="https://github.com/akpante3/fifa-cards/assets/37974813/52f6118b-e410-4ace-aebf-eb1b5e956a2d">
 <img width="473" alt="Screenshot 2024-05-30 at 2 07 54 PM" src="https://github.com/akpante3/fifa-cards/assets/37974813/02fa45e1-1304-4f15-b05f-79c612eeea7e">
