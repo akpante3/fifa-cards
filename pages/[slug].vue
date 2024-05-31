@@ -1,7 +1,7 @@
 <template>
-  <div class="loading-container" v-if="loading">
+  <section class="loading-container" v-if="loading">
     <Loader />
-  </div>
+  </section>
 
   <main class="detail-page" v-else>
     <section class="detail-page__player-stats" v-if="computedPlayerStats">

@@ -5,6 +5,7 @@
 
 This mini project with 2 pages,  list of FifaCards and The Detail page.
 
+
 ## Images 
 
   <img width="1440" alt="Screenshot 2024-05-30 at 10 45 29 AM" src="https://github.com/akpante3/fifa-cards/assets/37974813/52f6118b-e410-4ace-aebf-eb1b5e956a2d">
@@ -84,6 +85,4 @@ for unit run:
 - 
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
-
-
 

@@ -9,6 +9,9 @@ export default defineNuxtConfig({
     apiVersion: "2021-03-25",
     useCdn: true,
   },
+  server: {
+    port: 3000
+  },
   css: ['~/assets/main.css'],
   plugins: [
     { src: '~/plugins/sanity-image-builder.js', mode: 'client' }
