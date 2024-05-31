@@ -4,7 +4,7 @@
 
 
 This mini project with 2 pages,  
-- list of FifaCards
+- List of FifaCards
 - FifaCards Detail page.
 
 
