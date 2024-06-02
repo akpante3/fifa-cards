@@ -2,9 +2,6 @@
   <div
     class="relative overflow-x-auto shadow-md sm:rounded-lg"
   >
-    <button @click="() => console.log('clicked')" class="lrrfgg">
-      click me
-    </button>
     <table class="w-full text-sm text-left rtl:text-right">
       <thead class="text-xs">
         <tr>
@@ -50,7 +47,7 @@
           tabindex="0"
           @mouseenter="handleRowMouseEnter(rowIndex)"
           @mouseleave="handleRowMouseLeave(rowIndex)"
-          @keydown="handleRowKeyDown($event, row.slug)"
+          @keydown="handleRowKeyDown($event, row.slug, rowIndex)"
         >
           <nuxt-link :to="`/${row.slug}`" class="contents">
             <td
@@ -129,7 +126,7 @@ export default {
         // Handle mouse leave
       }
     },
-    handleRowKeyDown(event, slug) {
+    handleRowKeyDown(event, slug, rowIndex) {
       if (event.key === "Enter") {
         this.$router.push(`/${slug}`);
       }
