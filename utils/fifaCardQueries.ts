@@ -30,51 +30,14 @@ export interface FifaCard  {
 
 
 export async function getPlayerStats(slug:String): Promise<FifaCard[] | undefined> {
-
-	try {
-	  const data = await client.fetch(`
-		*[_type == "fifaCard" && slug.current == '${slug}'] {
-		  ...,
-		  cardImage {
-			asset-> {
-			  _id, metadata {
-				lqip, dimensions
-			  }
-			}
-		  },
-		}
-	  `)
-	  return data[0]
-
-	} catch (error) {
-	  console.error("Error fetching card:", error);
-	}
+	const res = await fetch(`/api/singleCard?slug=${slug}`)
+	const data = await res.json()
+	return data
   }
 
 
   export async function getFifaCards(): Promise<FifaCard[] | undefined> {
-	try {
-	  const data = await client.fetch(`*[_type == "fifaCard"]{
-		name,
-		rating,
-		position,
-		statistics {
-		  shooting { average },
-		  passing { average },
-		  defense { average },
-		  physical { average },
-		  dribbling { average },
-		  isGoalkeeper
-		},
-		workRatesAttacking,
-		slug {
-		  current
-		},
-		_id
-	  }`);
-
-	  return data;
-	} catch (error) {
-	  console.error("Error fetching cards:", error);
-	}
+	    const res = await fetch('/api/fetchCards')
+        const data = await res.json()
+		return data
   }

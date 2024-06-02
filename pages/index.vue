@@ -3,7 +3,7 @@
     <Loader />
   </section>
   <main class="table-wrapper"  v-else>
-    <TableComponent :headers="tableHeaders" :body="getFifaCards" />
+    <TableComponent :headers="tableHeaders" :body="fifaCards" />
     <!-- TODO: Pagination -->
   </main>
 </template>
@@ -39,9 +39,29 @@ export default {
     Loader,
   },
 
-  computed: {
-    getFifaCards() {
-      return this.fifaCards.map((card) => {
+  mounted() {
+    this.getCardsList();
+  },
+
+  methods: {
+    async getCardsList() {
+      this.loading = true
+      try {
+        const data = await getFifaCards();
+        // const res = await fetch('/api/fetchCards')
+        // const data = await res.json()
+
+        if (data) {
+          this.updateFifaCards(data)
+        }
+        this.loading = false
+      } catch (error) {
+        console.error("Error fetching Cards:", error);
+        this.loading = false
+      }
+    },
+    updateFifaCards(data) {
+      this.fifaCards = data.map((card) => {
         return {
           Name: card.name,
           OVR: card.rating,
@@ -56,26 +76,6 @@ export default {
           slug: card.slug.current,
         };
       });
-    },
-  },
-
-  mounted() {
-    this.getCardsList();
-  },
-
-  methods: {
-    async getCardsList() {
-      this.loading = true
-      try {
-        const data = await getFifaCards();
-        if (data) {
-          this.fifaCards = data;
-        }
-        this.loading = false
-      } catch (error) {
-        console.error("Error fetching Cards:", error);
-        this.loading = false
-      }
     },
   },
 };

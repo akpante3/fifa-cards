@@ -60,6 +60,7 @@ export default {
 
   mounted() {
     this.playerStat();
+    // change something
   },
   computed: {
     computedPlayerStats() {
