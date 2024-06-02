@@ -102,7 +102,6 @@ export default {
     },
     sortTable(columnIndex) {
       // TODO: sort table
-      console.log("what the fuck");
     },
     // setItemRef rows for keyboard accesibility
     // Enter: to change pages
