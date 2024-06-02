@@ -2,7 +2,7 @@
   <section class="loading-container" v-if="loading">
     <Loader />
   </section>
-  <main class="table-wrapper"  v-else>
+  <main class="table-wrapper" v-else>
     <TableComponent :headers="tableHeaders" :body="fifaCards" />
     <!-- TODO: Pagination -->
   </main>
@@ -30,7 +30,7 @@ export default {
         "PHY",
         "WR",
       ],
-      loading: true
+      loading: true,
     };
   },
 
@@ -45,19 +45,17 @@ export default {
 
   methods: {
     async getCardsList() {
-      this.loading = true
+      this.loading = true;
       try {
         const data = await getFifaCards();
-        // const res = await fetch('/api/fetchCards')
-        // const data = await res.json()
 
         if (data) {
-          this.updateFifaCards(data)
+          this.updateFifaCards(data);
         }
-        this.loading = false
+        this.loading = false;
       } catch (error) {
         console.error("Error fetching Cards:", error);
-        this.loading = false
+        this.loading = false;
       }
     },
     updateFifaCards(data) {
@@ -66,7 +64,7 @@ export default {
           Name: card.name,
           OVR: card.rating,
           POS: card.position || "",
-          Type: card.isGoalkeeper ? 'GK': 'Pl',
+          Type: card.isGoalkeeper ? "GK" : "Pl",
           PAC: card.statistics?.physical?.average ?? "",
           SHO: card.statistics?.shooting?.average || "",
           DRI: card.statistics?.dribbling?.average || "",

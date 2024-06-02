@@ -1,5 +1,4 @@
 import client from "~/utils/lib/sanityClient";
-import { getFifaCards } from "~/utils/fifaCardQueries";
 
 export default defineEventHandler(async () => {
     try {
@@ -26,8 +25,4 @@ export default defineEventHandler(async () => {
       } catch (error) {
         console.error("Error fetching cards:", error);
       }
-//   const data = await getFifaCards();
-
-//   console.log(data);
-//   return data;
 });

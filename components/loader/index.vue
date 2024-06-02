@@ -10,11 +10,11 @@
   
   <style scoped lang="scss">
   .loader {
-    border: 16px solid #f3f3f3;
+    border: 10px solid #f3f3f3;
     border-radius: 50%;
-    border-top: 16px solid rgba(65, 191, 141, 1);
-    width: 120px;
-    height: 120px;
+    border-top: 10px solid rgba(65, 191, 141, 1);
+    width: 100px;
+    height: 100px;
     -webkit-animation: spin 2s linear infinite; /* Safari */
     animation: spin 2s linear infinite;
   }
