@@ -76,13 +76,13 @@ export default {
     playerInfo() {
       if (this.player) {
         return {
-          club: this.player?.club || '',
-          league: this.player?.league || '',
-          nation: this.player?.nation || '',
-          strongFoot: this.player?.strongFoot || '',
-          age: this.player?.age || '',
-          height: this.player?.height || '',
-          workRatesAttacking: this.player.workRatesAttacking || '',
+          club: this.player?.club || "",
+          league: this.player?.league || "",
+          nation: this.player?.nation || "",
+          strongFoot: this.player?.strongFoot || "",
+          age: this.player?.age || "",
+          height: this.player?.height || "",
+          workRatesAttacking: this.player.workRatesAttacking || "",
         };
       }
       return {};

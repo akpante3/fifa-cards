@@ -68,6 +68,7 @@ for unit run:
 - [Vitest](https://vitest.dev/)
 - [Tailwind](https://tailwindcss.com/)
 - [Vue-Utils](https://test-utils.vuejs.org/)
+- [Docker](https://www.docker.com/)
 
 <!-- ROADMAP -->
 ## Roadmap
@@ -76,20 +77,28 @@ for unit run:
      - Design was created on  [Figma](https://www.figma.com/file/s7kImUBIReGwNOfhtkqSNs/GDM-hiring?node-id=0%3A1)
      - Manrope( variable ) family-font used throughout the project
      - Scss and Tailwind
+     - Responsive Across mobile, Desktop, Keyboard Accessibility (tab, Tab + shift to move focus in table)
        
 - [x] API Implementation:
     - Data was pulled from [sanity studio](https://www.sanity.io/)
+    - Nuxt server side
       
 - [x] Testing:
     - unit and e2e
+
+- [x] Deployment:
+    - GitHub Actions: to test build and deploy.
+    - Docker
+    - <a href="https://fly.io/"> Fly.io</a>
+    - <a href="https://fifa-cards.fly.dev">Link</a>
+
+
       
 ## Pending TODO
 
 - Pagination
 - Sorting
 - make the menu bar functional
-- Improve TypeScript usage in the components the project
-- 
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
