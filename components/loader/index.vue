@@ -10,9 +10,9 @@
   
   <style scoped lang="scss">
   .loader {
-    border: 10px solid #f3f3f3;
+    border: 10px solid var(--light-gray-color);
     border-radius: 50%;
-    border-top: 10px solid rgba(65, 191, 141, 1);
+    border-top: 10px solid var(--brand-color);
     width: 100px;
     height: 100px;
     -webkit-animation: spin 2s linear infinite; /* Safari */

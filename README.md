@@ -4,7 +4,7 @@
 
 
 This mini project with 2 pages,  
-- List of FifaCards
+- List of FifaCards.
 - FifaCards Detail page.
 
 
@@ -54,6 +54,7 @@ Tools used for testing includes:
 
 - Playwright: End-to-end (e2e) testing
 for e2e run: 
+* make sure your app is running at port http://localhost:3000/ before running the e2e test*
 ```sh
  npm run test:e2e
 ```    
@@ -77,7 +78,7 @@ for unit run:
      - Design was created on  [Figma](https://www.figma.com/file/s7kImUBIReGwNOfhtkqSNs/GDM-hiring?node-id=0%3A1)
      - Manrope( variable ) family-font used throughout the project
      - Scss and Tailwind
-     - Responsive Across mobile, Desktop, Keyboard Accessibility (tab, Tab + shift to move focus in table)
+     - Responsive Across mobile, Desktop, Keyboard Accessibility (Tab, Tab + shift to move focus in table)
        
 - [x] API Implementation:
     - Data was pulled from [sanity studio](https://www.sanity.io/)

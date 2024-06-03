@@ -1,8 +1,6 @@
 <template>
-  <div
-    class="relative overflow-x-auto shadow-md sm:rounded-lg"
-  >
-    <table class="w-full text-sm text-left rtl:text-right">
+  <div class="table-wrapper">
+    <table>
       <thead class="text-xs">
         <tr>
           <th
@@ -38,7 +36,7 @@
           </th>
         </tr>
       </thead>
-      <tbody class="body-row">
+      <tbody class="table-wrapper__body-row">
         <tr
           v-for="(row, rowIndex) in body"
           :ref="setItemRef(rowIndex)"
@@ -134,8 +132,9 @@ export default {
 };
 </script>
 
-<style scoped>
+<style scoped lang="scss">
 table {
+  @apply w-full text-sm text-left rtl:text-right;
   background: linear-gradient(
     180deg,
     var(--background-color-1) 10%,
@@ -148,28 +147,32 @@ th {
   @apply mr-2;
 }
 
-.body-row {
-  &__first-column {
-    color: var(--background-color-2);
-    background-color: white;
+.table-wrapper {
+  @apply relative overflow-x-auto shadow-md sm:rounded-lg;
+
+  &__body-row {
+    &__first-column {
+      color: var(--background-color-2);
+      background-color: white;
+    }
+
+    &__number-item {
+      border: var(--text-color) 1px solid;
+      justify-content: center;
+      align-items: center;
+      border-radius: 4px;
+      width: 40px;
+      height: 31px;
+      display: flex;
+    }
   }
 
-  &__number-item {
-    border: var(--text-color) 1px solid;
-    justify-content: center;
-    align-items: center;
-    border-radius: 4px;
-    width: 40px;
-    height: 31px;
-    display: flex;
+  &__body-row :hover {
+    background: var(--background-color-2);
   }
-}
 
-.body-row :hover {
-  background: var(--background-color-2);
-}
-
-.body-row :focus {
-  outline: 3px solid var(--background-color-2);
+  &__body-row :focus {
+    outline: 3px solid var(--background-color-2);
+  }
 }
 </style>
