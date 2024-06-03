@@ -75,23 +75,23 @@ for unit run:
 ## Roadmap
 
 - [x] UI Implementation:
-     - Design was created on  [Figma](https://www.figma.com/file/s7kImUBIReGwNOfhtkqSNs/GDM-hiring?node-id=0%3A1)
-     - Manrope( variable ) family-font used throughout the project
-     - Scss and Tailwind
-     - Responsive Across mobile, Desktop, Keyboard Accessibility (Tab, Tab + shift to move focus in table)
+     - Design created on  [Figma](https://www.figma.com/file/s7kImUBIReGwNOfhtkqSNs/GDM-hiring?node-id=0%3A1)
+     - Used the Manrope (variable) font family throughout the project
+     - Utilized SCSS and Tailwind CSS
+     - Ensured responsiveness across mobile and desktop devices, with keyboard accessibility (Tab, Tab + Shift to move focus in table)
        
 - [x] API Implementation:
-    - Data was pulled from [sanity studio](https://www.sanity.io/)
-    - Nuxt server side
+    - Pulled data from  [sanity studio](https://www.sanity.io/)
+    - Implemented with Nuxt server-side rendering
       
 - [x] Testing:
-    - unit and e2e
+    - Conducted unit and end-to-end (e2e) testing
 
 - [x] Deployment:
-    - GitHub Actions: to test build and deploy.
-    - Docker
-    - <a href="https://fly.io/"> Fly.io</a>
-    - <a href="https://fifa-cards.fly.dev">Link</a>
+    - Used GitHub Actions to test, build, and deploy
+    - Deployed with Docker
+    - Hosted on <a href="https://fly.io/"> Fly.io</a>
+    - Access the live application <a href="https://fifa-cards.fly.dev">here</a>
 
 
       

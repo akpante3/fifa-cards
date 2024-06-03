@@ -54,15 +54,15 @@
               class="px-6 py-4"
             >
               <div
-                v-if="key === 'OVR'"
-                class="body-row__first-column body-row__number-item"
+                :class="{
+                  'table-wrapper__body-row__first-column': key === 'OVR',
+                  'table-wrapper__body-row__number-item':
+                    key === 'OVR' || Number(item),
+                }"
               >
                 {{ item }}
               </div>
-              <div v-else-if="Number(item)" class="body-row__number-item">
-                {{ item }}
-              </div>
-              <span v-else>{{ item }}</span>
+              <!-- <span v-if="key !== 'OVR' && Number(item)">{{ item }}</span> -->
             </td>
           </nuxt-link>
         </tr>
@@ -101,7 +101,7 @@ export default {
     sortTable(columnIndex) {
       // TODO: sort table
     },
-    // setItemRef rows for keyboard accesibility
+    // setItemRef for accesibility
     // Enter: to change pages
     // Tab: to go down the table
     // tab + shift: go up the table
