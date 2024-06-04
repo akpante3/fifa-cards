@@ -82,6 +82,8 @@ export default {
 <style scoped>
 .table-wrapper {
   @apply mb-9;
+  margin: 0 auto;
   max-width: 1500px;
+
 }
 </style>

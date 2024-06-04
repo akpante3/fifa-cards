@@ -28,7 +28,7 @@ export default {
     },
     stats: {
       type: Object,
-      default: [],
+      default: {},
     },
     headerValue: {
       type: Number,

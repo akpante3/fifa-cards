@@ -22,7 +22,6 @@ export interface FifaCard {
   workRatesAttacking?: string;
   workRatesDefensive?: string;
   statistics?: object;
-  linkedArticle?: object;
 }
 
 export async function getPlayerStats(

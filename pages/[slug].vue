@@ -24,10 +24,10 @@
         </div>
       </div>
     </section>
-    <div class="detail-page__info-wrapper">
+    <section class="detail-page__info-wrapper">
       <h1 class="detail-page__player-name">{{ player.name }}</h1>
       <nuxt-link class="underline" to="/">View all cards</nuxt-link>
-    </div>
+    </section>
     <section class="detail-page__player-info">
       <div
         v-for="(value, name, index) in playerInfo"
@@ -60,7 +60,6 @@ export default {
 
   mounted() {
     this.playerStat();
-    // change something
   },
   computed: {
     computedPlayerStats() {
@@ -108,7 +107,7 @@ export default {
 
         this.loading = false;
       } catch (error) {
-        console.error("Error fetching posts:", error);
+        console.error("Error fetching Player Stat:", error);
         this.loading = false;
       }
     },
