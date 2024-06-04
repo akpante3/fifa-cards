@@ -72,6 +72,10 @@
 </template>
 
 <script>
+import { ref } from '@vue/composition-api'
+const itemRefs = ref(null)
+
+
 export default {
   name: "TableComponent",
   props: {
@@ -90,7 +94,7 @@ export default {
   },
   data() {
     return {
-      itemRefs: [],
+      // itemRefs: [],
     };
   },
 
@@ -107,18 +111,18 @@ export default {
     // tab + shift: go up the table
     setItemRef(rowIndex) {
       return (element) => {
-        if (!this.itemRefs[rowIndex]) {
-          this.itemRefs[rowIndex] = [];
+        if (itemRefs[rowIndex]) {
+          itemRefs[rowIndex] = [];
         }
-        this.itemRefs[rowIndex] = element;
+        itemRefs[rowIndex] = element;
       };
     },
     handleRowMouseEnter(rowIndex) {
-      const ref = this.itemRefs[rowIndex];
+      const ref = itemRefs[rowIndex];
       if (ref) ref.focus();
     },
     handleRowMouseLeave(rowIndex) {
-      const ref = this.itemRefs[rowIndex];
+      const ref = itemRefs[rowIndex];
       if (ref) {
         // Handle mouse leave
       }
