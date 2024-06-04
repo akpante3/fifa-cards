@@ -52,15 +52,17 @@ If you did everything right from Installation 👆🏾: The project should be av
 ## Test
 Tools used for testing includes:
 
-- Playwright: End-to-end (e2e) testing
-for e2e run: 
+### Playwright:
+- End-to-end (e2e) testing
+
 * make sure your app is running at port http://localhost:3000/ before running the e2e test*
 ```sh
  npm run test:e2e
-```    
+```
+    
+### Vitest: 
+- Unit testing
 
-- Vitest: Unit testing
-for unit run:
 ```sh
  npm run test:unit
 ```
