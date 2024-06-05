@@ -6,7 +6,14 @@ export default defineEventHandler(async (event) => {
   try {
     const data = await client.fetch(`
           *[_type == "fifaCard" && slug.current == '${query.slug}'] {
-            ...,
+            club,
+            league,
+            nation,
+            strongFoot,
+            age,
+            height,
+            workRatesAttacking,
+            statistics,
             cardImage {
               asset-> {
                 _id, metadata {
