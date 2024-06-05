@@ -115,6 +115,7 @@ export default {
           itemRefs[rowIndex] = [];
         }
         itemRefs[rowIndex] = element;
+        return rowIndex
       };
     },
     handleRowMouseEnter(rowIndex) {

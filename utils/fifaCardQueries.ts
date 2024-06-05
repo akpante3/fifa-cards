@@ -28,12 +28,18 @@ export async function getPlayerStats(
   slug: String
 ): Promise<FifaCard[] | undefined> {
   const res = await fetch(`/api/singleCard?slug=${slug}`);
+
+  if(res.statusText === "No Content") return
+
   const data = await res.json();
   return data;
 }
 
 export async function getFifaCards(): Promise<FifaCard[] | undefined> {
   const res = await fetch("/api/fetchCards");
+
+  if(res.statusText === "No Content") return []
+
   const data = await res.json();
   return data;
 }
