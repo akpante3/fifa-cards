@@ -73,11 +73,17 @@ for unit run:
 
 <!-- ROADMAP -->
 ## Roadmap
+- [x] Project Setup:
+     - Sanity
+     - Nuxt 3
+     - Typescript
+     - Tailwind
 
 - [x] UI Implementation:
      - Design created on  [Figma](https://www.figma.com/file/s7kImUBIReGwNOfhtkqSNs/GDM-hiring?node-id=0%3A1)
+     - Implemented pages and Components
      - Used the Manrope (variable) font family throughout the project
-     - Utilized SCSS and Tailwind CSS
+     - Utilized SCSS, BEM and Tailwind CSS
      - Ensured responsiveness across mobile and desktop devices, with keyboard accessibility (Tab, Tab + Shift to move focus in table)
        
 - [x] API Implementation:
