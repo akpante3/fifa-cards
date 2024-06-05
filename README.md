@@ -73,11 +73,6 @@ for unit run:
 
 <!-- ROADMAP -->
 ## Roadmap
-- [x] Project Setup:
-     - Sanity
-     - Nuxt 3
-     - Typescript
-     - Tailwind
 
 - [x] UI Implementation:
      - Design created on  [Figma](https://www.figma.com/file/s7kImUBIReGwNOfhtkqSNs/GDM-hiring?node-id=0%3A1)
