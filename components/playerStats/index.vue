@@ -1,7 +1,7 @@
 <template>
-  <div class="player-stats">
+  <section class="player-stats" aria-labelledby="player-stats-header">
     <ul>
-      <li class="player-stats__header">
+      <li class="player-stats__header" id="player-stats-header">
         <span class="player-stats__header-title">{{
           formatHeader(header)
         }}</span>
@@ -16,7 +16,7 @@
         <span class="ml-2">{{ value }}</span>
       </li>
     </ul>
-  </div>
+  </section>
 </template>
 <script>
 export default {
@@ -61,7 +61,7 @@ export default {
     @apply text-lg font-bold;
   }
   &__body-value {
-    @apply flex justify-between items-center py-2 capitalize
+    @apply flex justify-between items-center py-2 capitalize;
   }
 }
 </style>
