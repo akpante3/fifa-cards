@@ -2,8 +2,8 @@
   <section class="loading-container" v-if="loading">
     <Loader />
   </section>
-  <main class="table-wrapper"  v-else>
-    <TableComponent :headers="tableHeaders" :body="getFifaCards" />
+  <main class="table-wrapper" v-else>
+    <TableComponent :headers="tableHeaders" :body="fifaCards" />
     <!-- TODO: Pagination -->
   </main>
 </template>
@@ -30,7 +30,7 @@ export default {
         "PHY",
         "WR",
       ],
-      loading: true
+      loading: true,
     };
   },
 
@@ -39,14 +39,32 @@ export default {
     Loader,
   },
 
-  computed: {
-    getFifaCards() {
-      return this.fifaCards.map((card) => {
+  mounted() {
+    this.getCardsList();
+  },
+
+  methods: {
+    async getCardsList() {
+      this.loading = true;
+      try {
+        const data = await getFifaCards();
+
+        if (data) {
+          this.updateFifaCards(data);
+        }
+        this.loading = false;
+      } catch (error) {
+        console.error("Error fetching Cards:", error);
+        this.loading = false;
+      }
+    },
+    updateFifaCards(data) {
+      this.fifaCards = data.map((card) => {
         return {
           Name: card.name,
           OVR: card.rating,
           POS: card.position || "",
-          Type: card.isGoalkeeper ? 'GK': 'Pl',
+          Type: card.isGoalkeeper ? "GK" : "Pl",
           PAC: card.statistics?.physical?.average ?? "",
           SHO: card.statistics?.shooting?.average || "",
           DRI: card.statistics?.dribbling?.average || "",
@@ -58,32 +76,14 @@ export default {
       });
     },
   },
-
-  mounted() {
-    this.getCardsList();
-  },
-
-  methods: {
-    async getCardsList() {
-      this.loading = true
-      try {
-        const data = await getFifaCards();
-        if (data) {
-          this.fifaCards = data;
-        }
-        this.loading = false
-      } catch (error) {
-        console.error("Error fetching Cards:", error);
-        this.loading = false
-      }
-    },
-  },
 };
 </script>
 
 <style scoped>
 .table-wrapper {
   @apply mb-9;
+  margin: 0 auto;
   max-width: 1500px;
+
 }
 </style>

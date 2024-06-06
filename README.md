@@ -3,7 +3,9 @@
 ## About The Project
 
 
-This mini project with 2 pages,  list of FifaCards and The Detail page.
+This mini project with 2 pages,  
+- List of FifaCards.
+- FifaCards Detail page.
 
 
 ## Images 
@@ -18,12 +20,11 @@ This mini project with 2 pages,  list of FifaCards and The Detail page.
 
 ## Getting Started
 
-Instructions for setting up this project locally.
-To get a local copy up and running follow these simple example steps.
+Follow these instructions to set up the project locally.
 
 <!-- PREREQUISITES -->
 ## Prerequisites
-* node <a href="https://nodejs.org/en">Download</a>
+* <a href="https://nodejs.org/en"> node</a>
 * npm
   ```sh
   npm install npm@latest -g
@@ -51,38 +52,55 @@ If you did everything right from Installation 👆🏾: The project should be av
 ## Test
 Tools used for testing includes:
 
-- Playwright: e2e test
+- Playwright: End-to-end (e2e) testing
 for e2e run: 
+* make sure your app is running at port http://localhost:3000/ before running the e2e test*
 ```sh
  npm run test:e2e
 ```    
 
-- Vitest: unit test
+- Vitest: Unit testing
 for unit run:
 ```sh
  npm run test:unit
 ```
 ## Packages
+- [Playwright](https://playwright.dev/)
+- [Vitest](https://vitest.dev/)
+- [Tailwind](https://tailwindcss.com/)
+- [Vue-Utils](https://test-utils.vuejs.org/)
+- [Docker](https://www.docker.com/)
 
 <!-- ROADMAP -->
 ## Roadmap
 
 - [x] UI Implementation:
-     - Design was created on  [Figma](https://www.figma.com/file/s7kImUBIReGwNOfhtkqSNs/GDM-hiring?node-id=0%3A1)
-     - Manrope family-font used through the project
+     - Design created on  [Figma](https://www.figma.com/file/s7kImUBIReGwNOfhtkqSNs/GDM-hiring?node-id=0%3A1)
+     - Implemented pages and Components
+     - Used the Manrope (variable) font family throughout the project
+     - Utilized SCSS, BEM and Tailwind CSS
+     - Ensured responsiveness across mobile and desktop devices, with keyboard accessibility (Tab, Tab + Shift to move focus in table)
        
 - [x] API Implementation:
-      - Data was pulled from [sanity studio](https://www.sanity.io/)
+    - Pulled data from  [sanity studio](https://www.sanity.io/)
+    - Implemented with Nuxt server-side rendering
       
 - [x] Testing:
-      - unit and e2e
+    - Conducted unit and end-to-end (e2e) testing
+
+- [x] Deployment:
+    - Used GitHub Actions to test, build, and deploy
+    - Deployed with Docker
+    - Hosted on <a href="https://fly.io/"> Fly.io</a>
+    - Access the live application <a href="https://fifa-cards.fly.dev">here</a>
+
+
       
 ## Pending TODO
+
 - Pagination
 - Sorting
-- make the menu-bar functional
-- improve typescript around the project
-- 
+- make the menu bar functional
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 

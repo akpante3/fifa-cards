@@ -1,82 +1,45 @@
-import client from "./lib/sanityClient"
-
-
-// TODO: use the FifaCard interface in methods.
-// got some errors that persisted using the interface, decided to remove it from the because of limited time
-export interface FifaCard  {
-	_type: 'fifaCard'
-	name?: string
-	gameVersion?: string
-	isGoalkeeper?: boolean
-	slug?: { _type: 'slug'; current: string }
-	description?: string
-	cardImage?: {
-		_type: 'cardImage'
-		asset: Object
-	}
-	cardType?: string
-	position?: string
-	rating?: number
-	club?: string
-	league?: string
-	nation?: string
-	strongFoot?: number
-	skillMoves?: number
-	age?: string
-	height?: string
-	workRatesAttacking?: string
-	workRatesDefensive?: string
-	statistics?: object
-	linkedArticle?: object
+export interface FifaCard {
+  _type: "fifaCard";
+  name: string;
+  gameVersion?: string;
+  isGoalkeeper?: boolean;
+  slug?: { _type: "slug"; current: string };
+  description?: string;
+  cardImage?: {
+    _type: "cardImage";
+    asset: Object;
+  };
+  cardType?: string;
+  position?: string;
+  rating?: number;
+  club?: string;
+  league?: string;
+  nation?: string;
+  strongFoot?: number;
+  skillMoves?: number;
+  age?: string;
+  height?: string;
+  workRatesAttacking?: string;
+  workRatesDefensive?: string;
+  statistics?: object;
 }
 
+export async function getPlayerStats(
+  slug: String
+): Promise<FifaCard[] | undefined> {
+  const res = await fetch(`/api/singleCard?slug=${slug}`);
 
-export async function getPlayerStats(slug:String) {
+  if(res.statusText === "No Content") return
 
-	try {
-	  const data = await client.fetch(`
-		*[_type == "fifaCard" && slug.current == '${slug}'] {
-		  ...,
-		  cardImage {
-			asset-> {
-			  _id, metadata {
-				lqip, dimensions
-			  }
-			}
-		  },
-		}
-	  `)
-	  return data[0]
+  const data = await res.json();
+  return data;
+}
 
-	} catch (error) {
-	  console.error("Error fetching posts:", error);
-	}
-  }
+export async function getFifaCards(): Promise<FifaCard[] | undefined> {
+  const res = await fetch("/api/fetchCards");
 
+  if(res.statusText === "No Content") return []
 
- export async function getFifaCards() {
-	try {
-	  const data = await client.fetch(`*[_type == "fifaCard"]{
-		name,
-		rating,
-		position,
-		statistics {
-		  shooting { average },
-		  passing { average },
-		  defense { average },
-		  physical { average },
-		  dribbling { average },
-		  isGoalkeeper
-		},
-		workRatesAttacking,
-		slug {
-		  current
-		},
-		_id
-	  }`);
-
-	  return data;
-	} catch (error) {
-	  console.error("Error fetching posts:", error);
-	}
-  }
+  const data = await res.json();
+  return data;
+}

@@ -3,13 +3,14 @@ export default defineNuxtConfig({
 // vite:false,
   devtools: { enabled: true },
   modules: ["@nuxtjs/tailwindcss", '@nuxtjs/sanity'],
+  // TODO: put sanity values in .env file
   sanity: {
     projectId: "21fy9g0s",
     dataset: "production",
     apiVersion: "2021-03-25",
     useCdn: true,
   },
-  server: {
+  devServer: {
     port: 3000
   },
   css: ['~/assets/main.css'],
