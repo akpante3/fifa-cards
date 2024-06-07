@@ -1,7 +1,7 @@
 <template>
-  <div class="loading-container" v-if="loading">
+  <section class="loading-container" v-if="loading">
     <Loader />
-  </div>
+  </section>
 
   <main class="detail-page" v-else>
     <section class="detail-page__player-stats" v-if="computedPlayerStats">
@@ -24,10 +24,10 @@
         </div>
       </div>
     </section>
-    <div class="detail-page__info-wrapper">
+    <section class="detail-page__info-wrapper">
       <h1 class="detail-page__player-name">{{ player.name }}</h1>
       <nuxt-link class="underline" to="/">View all cards</nuxt-link>
-    </div>
+    </section>
     <section class="detail-page__player-info">
       <div
         v-for="(value, name, index) in playerInfo"
@@ -75,13 +75,13 @@ export default {
     playerInfo() {
       if (this.player) {
         return {
-          club: this.player?.club || '',
-          league: this.player?.league || '',
-          nation: this.player?.nation || '',
-          strongFoot: this.player?.strongFoot || '',
-          age: this.player?.age || '',
-          height: this.player?.height || '',
-          workRatesAttacking: this.player.workRatesAttacking || '',
+          club: this.player?.club || "",
+          league: this.player?.league || "",
+          nation: this.player?.nation || "",
+          strongFoot: this.player?.strongFoot || "",
+          age: this.player?.age || "",
+          height: this.player?.height || "",
+          workRatesAttacking: this.player.workRatesAttacking || "",
         };
       }
       return {};
@@ -107,7 +107,7 @@ export default {
 
         this.loading = false;
       } catch (error) {
-        console.error("Error fetching posts:", error);
+        console.error("Error fetching Player Stat:", error);
         this.loading = false;
       }
     },

@@ -1,78 +1,45 @@
-import client from "./lib/sanityClient"
-
-export interface FifaCard  {
-	_type: 'fifaCard'
-	name?: string
-	gameVersion?: string
-	isGoalkeeper?: boolean
-	slug?: { _type: 'slug'; current: string }
-	description?: string
-	cardImage?: {
-		_type: 'cardImage'
-		asset: Object
-	}
-	cardType?: string
-	position?: string
-	rating?: number
-	club?: string
-	league?: string
-	nation?: string
-	strongFoot?: number
-	skillMoves?: number
-	age?: string
-	height?: string
-	workRatesAttacking?: string
-	workRatesDefensive?: string
-	statistics?: object
-	linkedArticle?: object
+export interface FifaCard {
+  _type: "fifaCard";
+  name: string;
+  gameVersion?: string;
+  isGoalkeeper?: boolean;
+  slug?: { _type: "slug"; current: string };
+  description?: string;
+  cardImage?: {
+    _type: "cardImage";
+    asset: Object;
+  };
+  cardType?: string;
+  position?: string;
+  rating?: number;
+  club?: string;
+  league?: string;
+  nation?: string;
+  strongFoot?: number;
+  skillMoves?: number;
+  age?: string;
+  height?: string;
+  workRatesAttacking?: string;
+  workRatesDefensive?: string;
+  statistics?: object;
 }
 
-export async function getPlayerStats(slug:String) {
+export async function getPlayerStats(
+  slug: String
+): Promise<FifaCard[] | undefined> {
+  const res = await fetch(`/api/singleCard?slug=${slug}`);
 
-	try {
-	  const data = await client.fetch(`
-		*[_type == "fifaCard" && slug.current == '${slug}'] {
-		  ...,
-		  cardImage {
-			asset-> {
-			  _id, metadata {
-				lqip, dimensions
-			  }
-			}
-		  },
-		}
-	  `)
-	  return data[0]
-	  console.log(data)
-	} catch (error) {
-	  console.error("Error fetching posts:", error);
-	}
-  }
+  if(res.statusText === "No Content") return
 
+  const data = await res.json();
+  return data;
+}
 
- export async function getFifaCards() {
-	try {
-	  const data = await client.fetch(`*[_type == "fifaCard"]{
-		name,
-		rating,
-		position,
-		statistics {
-		  shooting { average },
-		  passing { average },
-		  defense { average },
-		  physical { average },
-		  dribbling { average },
-		  isGoalkeeper
-		},
-		workRatesAttacking,
-		slug {
-		  current
-		},
-		_id
-	  }`);
+export async function getFifaCards(): Promise<FifaCard[] | undefined> {
+  const res = await fetch("/api/fetchCards");
 
-	  return data;
-	} catch (error) {
-	  console.error("Error fetching posts:", error);
-	}
-  }
+  if(res.statusText === "No Content") return []
+
+  const data = await res.json();
+  return data;
+}

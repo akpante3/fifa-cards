@@ -27,7 +27,7 @@ export default {
 };
 </script>
 
-<style scoped>
+<style scoped lang="scss">
 nav {
   @apply p-4  mb-7 flex justify-center;
   background-color: var(--background-color-2);
