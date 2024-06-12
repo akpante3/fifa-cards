@@ -106,7 +106,7 @@ export default {
       // TODO: sort table
     },
     // setItemRef for accesibility
-    // Enter: to change pages
+    // Enter: to move the single card page
     // Tab: to go down the table
     // tab + shift: go up the table
     setItemRef(rowIndex) {

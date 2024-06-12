@@ -1,7 +1,7 @@
 <!-- components/Navbar.vue -->
 <template>
   <nav>
-    <ul class="flex justify-between">
+    <ul>
       <li>
         <img
           src="../../assets/icons/menu.svg"
@@ -33,6 +33,7 @@ nav {
   background-color: var(--background-color-2);
 }
 ul {
+  @apply flex justify-between;
   max-width: 1500px;
   width: 100%;
 }

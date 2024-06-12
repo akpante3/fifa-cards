@@ -96,7 +96,6 @@ export default {
         const data = await getPlayerStats(this.$route.params.slug);
 
         if (!data) {
-          console.log("am i invincible");
           router.push({ path: "/404" });
           return;
         }
@@ -107,7 +106,7 @@ export default {
 
         this.loading = false;
       } catch (error) {
-        console.error("Error fetching Player Stat:", error);
+        router.push({ path: "/404" });
         this.loading = false;
       }
     },
